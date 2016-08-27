@@ -1,0 +1,62 @@
+﻿@using ECommerce.Domain.Entities
+@using ECommerce.WebUI.Resources.Shared
+@using GridMvc.Html
+@model IEnumerable<ECommerce.Domain.Entities.FeatureRequest>
+@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@helper RenderDeleteForm(FeatureRequest featureRequest)
+{
+    <form action="/Admin/DeleteFeatureRequest" method="POST">
+        <input type="hidden" name="id" value="@featureRequest.Id" />
+        <input type="submit" value="Delete" />
+    </form>
+}
+
+<h2>@SharedStrings.SiteName - Admin Dashboard</h2>
+
+TODO: Put some cool stuff here, i.e. sales dashboard
+<br/>
+-Manage Categories/Products
+<br />
+-Manage Orders
+<br />
+-Manage Users
+<br />
+-Manage Promo Codes
+
+<br/>
+<br/>
+
+<ul>
+    <li>
+        @Html.ActionLink("Edit Categories/Products", "Categories", "Admin")
+    </li>
+    <li>
+        @Html.ActionLink("Back To Store", "List", "Product")
+    </li>
+</ul>
+
+<br/>
+<h4>Feature Requests</h4>
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.Id, true);
+    columns.Add(c => c.Name).Titled("Name");
+    columns.Add(c => c.Description).Titled("Description");
+    columns.Add(c => c.CreateDate).Titled("Created");
+    columns.Add(c => c.ModifiedDate).Titled("Modified");
+    columns.Add(c => c.RequestedBy).Titled("Requested By");
+    columns.Add(c => c.Status).Titled("Status");
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => Html.ActionLink("Edit", "EditFeatureRequest", "Admin", new {id = c.Id}, new {}));
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => RenderDeleteForm(c));
+}).Selectable(false)
+@Html.ActionLink("Create Feature Request", "CreateFeatureRequest")
+

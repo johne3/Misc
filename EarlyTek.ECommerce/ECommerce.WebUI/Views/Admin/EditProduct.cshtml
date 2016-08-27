@@ -1,0 +1,71 @@
+﻿@model ECommerce.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Admin: Edit " + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    
+    var list = ViewBag.Categories;
+    var categories = new SelectList(list, "CategoryId", "Name");
+}
+
+<h2>Edit @Model.Name</h2>
+
+@using (Html.BeginForm("SaveProduct", "Admin",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+    @*@Html.EditorForModel()*@
+
+    @Html.HiddenFor(x => x.ProductId)
+    @Html.HiddenFor(x => x.Thumbnail.ImagePath)
+    @Html.HiddenFor(x => x.Thumbnail.ThumbnailId)
+    
+    <div class="editor-label">Name</div>
+    <div class="editor-field">
+        @Html.TextBoxFor(x => x.Name)
+    </div>
+    
+    <div class="editor-label">Description</div>
+    <div class="editor-field">
+        @Html.TextAreaFor(x => x.Description, 5, 0, null)
+    </div>          
+    
+     <div class="editor-label">Price</div>
+       <div class="editor-field">
+        @Html.TextBoxFor(x => x.Price)
+    </div>
+
+    <div class="editor-label">Category</div>
+    <div class="editor-field">
+        @Html.DropDownListFor(m => m.CategoryId, @categories)
+    </div>
+
+    <div class="editor-label">Thumbnail</div>
+    <div class="editor-field">
+
+        @if (Model.Thumbnail != null && !string.IsNullOrWhiteSpace(Model.Thumbnail.ImagePath))
+        {
+            <img width="150" height="150"
+                 src="@Url.Content(Model.Thumbnail.ImagePath)"/>
+        }
+        else
+        {
+            @:None
+        }
+        
+
+        @*@if (Model.ImageData == null)
+        {
+            @:None
+        }
+        else
+        {
+            <img width="150" height="150"
+                src="@Url.Action("GetImage", "Product", new { Model.ProductId })"/>
+        }*@
+        <div>Upload new image: <input type="file" name="Image"/></div>
+    </div>
+    
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel", "Products", new {id = Model.CategoryId})
+}

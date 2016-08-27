@@ -1,0 +1,30 @@
+﻿@model ECommerce.Domain.Entities.Product
+@{
+    ViewBag.Title = "Product Videos";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Videos for @Model.Name</h2>
+@Html.ActionLink("Back To Products", "Products", new {id = Model.CategoryId})
+<br/>
+
+@using (Html.BeginForm("SaveVideo", "Admin",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.ProductId)
+    @Html.Label("Video Link:")
+    <br/>
+    <input type="text" name="Source"/>
+    <input type="submit" value="Save" />
+}
+
+<table>
+    @foreach (var video in Model.Videos)
+    {
+        <tr>
+            <td>
+                <iframe src="@video.Source" width="600" height="375"></iframe>
+            </td>
+        </tr>
+    }
+</table>

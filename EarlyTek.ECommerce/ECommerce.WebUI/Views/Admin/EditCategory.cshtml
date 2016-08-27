@@ -1,0 +1,18 @@
+﻿@model ECommerce.Domain.Entities.Category
+
+@{
+    ViewBag.Title = "Admin: Edit Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit @Model.Name</h2>
+
+@using (Html.BeginForm("SaveCategory", "Admin",
+    FormMethod.Post, new {enctype = "multipart/form-data"}))
+{
+    @Html.EditorForModel()
+  
+
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to List", "Categories")
+}

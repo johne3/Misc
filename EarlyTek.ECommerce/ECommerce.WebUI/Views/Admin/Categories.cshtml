@@ -1,0 +1,33 @@
+﻿@using ECommerce.Domain.Entities
+@using GridMvc.Html
+@model IEnumerable<Category>
+
+@{
+    ViewBag.Title = "Admin: Categories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Categories</h1>
+@Html.Grid(Model).Columns(columns => 
+{
+    columns.Add(c => c.CategoryId).Titled("Id");
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => Html.ActionLink(c.Name, "EditCategory", new { c.CategoryId }))
+        .Titled("Name");
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => Html.ActionLink("Products", "Products", new {id = c.CategoryId}))
+        .Titled("Products");
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => Html.ActionLink("Delete", "ConfirmDeleteCategory", new {id = c.CategoryId}))
+        .Titled("Delete");
+}).Selectable(false)
+
+<div class="links">
+    @Html.ActionLink("Add a new Category", "CreateCategory") @Html.ActionLink("Back to Dashboard", "Index")
+</div>

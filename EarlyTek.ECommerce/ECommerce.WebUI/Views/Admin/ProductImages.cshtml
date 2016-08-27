@@ -1,0 +1,37 @@
+﻿@model ECommerce.Domain.Entities.Product
+@{
+    ViewBag.Title = "Product Images";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Images for @Model.Name</h2>
+@Html.ActionLink("Back To Products", "Products", new { id = Model.CategoryId })
+<br />
+
+@using (Html.BeginForm("SaveImage", "Admin",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.ProductId)
+    <div>Upload new image: <input type="file" name="Image" /></div>
+    <input type="submit" value="Save" />
+}
+
+<table>
+    @foreach (var picture in Model.Pictures)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Content(picture.ImagePath)" width="600" height="400" alt="" />
+            </td>
+            @*<td>
+                @Html.Label("Id:")
+                @Html.Label(picture.PictureId.ToString(CultureInfo.InvariantCulture))
+                <br/>
+                @Html.Label("Image Path:")
+                @Html.Label(string.Format(picture.ImagePath))
+            </td>*@
+        </tr>
+    }
+</table>
+
+

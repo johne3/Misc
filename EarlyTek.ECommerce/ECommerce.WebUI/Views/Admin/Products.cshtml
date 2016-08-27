@@ -1,0 +1,42 @@
+﻿@using GridMvc.Html
+@model ECommerce.Domain.Entities.Category
+
+@{
+    ViewBag.Title = "Admin: Products";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Products in @Model.Name</h1>
+
+@Html.Grid(Model.Products).Columns(columns =>
+{
+    columns.Add(c => c.ProductId).Titled("Id").SetWidth(30);
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => Html.ActionLink(c.Name, "EditProduct", new {c.ProductId}))
+        .Titled("Name");
+
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => Html.ActionLink("Images", "ProductImages", new {c.ProductId}))
+        .Titled("Images");
+
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => Html.ActionLink("Videos", "ProductVideos", new {c.ProductId}))
+        .Titled("Videos");
+    
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(c => Html.ActionLink("Delete", "ConfirmDeleteProduct", new { c.ProductId}))
+        .Titled("Delete");
+
+}).Selectable(false)
+
+<div class="links">
+    @Html.ActionLink("Add a new product", "CreateProduct") @Html.ActionLink("Back To Categories", "Categories") @Html.ActionLink("Back to Dashboard", "Index")
+</div>

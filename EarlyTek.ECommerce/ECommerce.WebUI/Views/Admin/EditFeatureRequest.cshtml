@@ -1,0 +1,28 @@
+﻿@model ECommerce.Domain.Entities.FeatureRequest
+@{
+    ViewBag.Title = "Edit Feature Request";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit Feature Request</h2>
+
+@using (Html.BeginForm("SaveFeatureRequest", "Admin"))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.RequestedBy)
+    @Html.LabelFor(x => x.Name)
+    <br/>
+    @Html.TextBoxFor(x => x.Name)
+    <br/>
+    @Html.LabelFor(x => x.Description)
+    <br/>
+    @Html.TextBoxFor(x => x.Description)
+    <br/>
+    @Html.LabelFor(x => x.Status)
+    <br/>
+    @Html.TextBoxFor(x => x.Status)
+    <br/>
+    <input type="submit" value="Save"/>
+    @Html.ActionLink("Cancel", "Index")
+}
+

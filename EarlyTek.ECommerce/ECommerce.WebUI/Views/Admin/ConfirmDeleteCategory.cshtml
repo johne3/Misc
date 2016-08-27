@@ -1,0 +1,20 @@
+﻿@model ECommerce.Domain.Entities.Category
+@{
+    ViewBag.Title = "Admin: Delete Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete Category</h2>
+Are you sure you want to delete this category?
+This will delete all products associated with this category.
+<br/>
+@Html.LabelFor(x => x.Name)
+<br/>
+@Html.Label(Model.Name)
+
+@using (Html.BeginForm("DeleteCategory", "Admin"))
+{
+    @Html.HiddenFor(x => x.CategoryId)
+    <input type="submit" value="Delete"/>
+    @Html.ActionLink("Cancel", "Categories")
+}

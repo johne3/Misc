@@ -1,0 +1,373 @@
+BODY
+{
+	font-size: 0.85em;
+	font: 1em "Segoe UI", Verdana, Helvetica, Sans-Serif;
+	color: #232323;
+	background-color: #FFF;
+	margin: 0;
+}
+HEADER, FOOTER, NAV, SECTION
+{
+	display: block;
+}
+/*Styles for basic forms
+-----------------------------------------------------------
+fieldset {
+border: 1px solid #ddd;
+padding: 0 1.4em 1.4em 1.4em;
+margin: 0 0 1.5em 0;
+}
+legend {
+font-size: 1.2em;
+font-weight: bold;
+}*/
+TEXTAREA
+{
+	min-height: 75px;
+}
+.label
+{
+	font-weight: 700;
+}
+LABEL
+{
+	display: block;
+	font-size: 1.2em;
+	font-weight: 600;
+}
+LABEL.checkbox
+{
+	display: inline;
+}
+.editor-label
+{
+	margin: 1em 0 0;
+}
+.editor-field
+{
+	margin: 0.5em 0 0;
+}
+A:link, A:visited, A:active, A:hover
+{
+	color: #333;
+}
+A
+{
+}
+/*Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+	color: #F00;
+}
+.field-validation-valid
+{
+	display: none;
+}
+.input-validation-error
+{
+	border: 1px solid #F00;
+	background-color: #FEE;
+}
+.validation-summary-errors
+{
+	font-weight: bold;
+	color: #F00;
+}
+.validation-summary-valid
+{
+	display: none;
+}
+DIV#header DIV.title, DIV.item H3, DIV.item H4, DIV.pager A
+{
+	font-weight: bold;
+	font-size: 1em;
+}
+
+div.title a
+ {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+DIV#header
+{
+	background-color: #4B7AE6;
+	border-bottom: 0 solid #111;
+	color: #FFFFFF;
+}
+DIV#login UL
+{
+	margin: 0;
+}
+#login
+{
+	display: block;
+	margin: 0 0 2.1em;
+}
+#userInfo
+{
+	/*+placement:float-right 0px 0px;*/
+	float: right;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	padding: 1em 1em 0em 0em;
+}
+DIV#header DIV.title
+{
+	font-size: 2em;
+	padding: 0.6em;
+}
+DIV#content
+{
+	/*border-left: 2px solid #808080;*/
+	margin-left: 9em;
+	padding: 1em;
+}
+DIV#categories
+{
+	font-weight: bold;
+	float: left;
+	width: 8em;
+	padding: 0.3em;
+}
+DIV.item
+{
+	border-top: 1px dotted #808080;
+	padding-top: 0.7em;
+	margin-bottom: 0.7em;
+    height: 125px;
+}
+
+    div.item.imagelink 
+    {
+        float: left;
+        margin-right: 20px;
+    }
+
+div.detailsColumn1
+{
+    margin-left: 25px;
+    float: left;
+    padding-top: 0.7em;
+	margin-bottom: 0.7em;
+}
+
+DIV.detailsColumn2
+{
+    float: left;
+    position: relative;
+	/*padding-top: 0.7em;*/
+	margin-bottom: 0.7em;
+}
+DIV.item A
+{
+	color: #4B7AE6;
+}
+DIV.item:first-child
+{
+	border-top: none;
+	padding-top: 0;
+}
+DIV.item H3
+{
+	font-size: 1.3em;
+	margin: 0 0 0.25em;
+}
+DIV.item H4
+{
+	font-size: 1.1em;
+	margin: 0.4em 0 0;
+}
+DIV.pager
+{
+	text-align: right;
+	border-top: 2px solid #C0C0C0;
+	padding: 0.5em 0 0;
+	margin-top: 1em;
+}
+DIV.pager A
+{
+	font-size: 1.1em;
+	color: #666;
+	text-decoration: none;
+	padding: 0 0.4em;
+}
+DIV.pager A:hover
+{
+	background-color: #C0C0C0;
+}
+DIV.pager A.selected
+{
+	background-color: #4B7AE6;
+	color: #FFFFFF;
+}
+DIV#categories A
+{
+	display: block;
+	text-decoration: none;
+	padding: 0.6em;
+	color: #000000;
+	border-bottom: 1px solid #C0C0C0;
+}
+DIV#categories A.selected
+{
+	background-color: #4B7AE6;
+	color: #FFFFFF;
+}
+DIV#categories A:hover
+{
+	background-color: #CCC;
+}
+DIV#categories A.selected:hover
+{
+	background-color: #4B7AE6;
+	color: #FFFFFF;
+}
+FORM
+{
+	margin: 0;
+	padding: 0;
+}
+DIV.item FORM
+{
+	float: right;
+}
+DIV.item INPUT
+{
+	color: #FFFFFF;
+	height: 30px;
+	background-color: #4B7AE6;
+	border: 0 solid #000000;
+	cursor: pointer;
+}
+DIV.item IMG
+{
+	border: 0;
+}
+DIV.details INPUT
+{
+	color: #FFFFFF;
+	height: 30px;
+	background-color: #4B7AE6;
+	border: 0 solid #000000;
+	cursor: pointer;
+}
+DIV.details FORM
+{
+	float: left;
+}
+H2
+{
+	margin-top: 0.3em;
+}
+TFOOT TD
+{
+	border-top: 1px dotted #808080;
+	font-weight: bold;
+}
+.actionButtons A, INPUT.actionButtons
+{
+	font: 0.8em Arial;
+	color: #FFFFFF;
+	height: 30px;
+	margin: 0.5em;
+	text-decoration: none;
+	padding: 0.15em 1.5em 0.2em;
+	background-color: #4B7AE6;
+	border: 0 solid #000000;
+	cursor: pointer;
+}
+DIV#cart
+{
+	color: #FFFFFF;
+	/*background-color: #555;*/
+	margin: -29px 0 0;
+}
+DIV#cart A
+{
+	text-decoration: none;
+	padding: 0.4em 1em;
+	line-height: 2.1em;
+	margin-left: 0.5em;
+	background-color: #333;
+	color: #FFFFFF;
+	border: 1px solid #333;
+}
+/*forms*/
+FIELDSET
+{
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+FIELDSET LEGEND
+{
+	display: none;
+}
+FIELDSET OL
+{
+	padding: 0;
+	list-style: none;
+}
+FIELDSET OL LI
+{
+	padding-bottom: 5px;
+}
+/*login
+----------------------------------------------------------*/
+#login A
+{
+	margin-left: 10px;
+	margin-right: 3px;
+	padding: 2px 3px;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+#login A.username
+{
+	background: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: underline;
+}
+#login UL
+{
+	/*+placement:float-left 0;*/
+	float: left;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+#login LI
+{
+	display: inline-block;
+	list-style: none;
+}
+/*login page*/
+DIV#account
+{
+	/*+placement:float-right 0;*/
+	float: right;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+#loginForm
+{
+	border-right: none;
+	float: none;
+	width: auto;
+}
+#loginForm .validation-error
+{
+	display: block;
+	margin-left: 15px;
+}
+#socialLoginForm
+{
+	margin-left: 0;
+	float: none;
+	width: auto;
+}

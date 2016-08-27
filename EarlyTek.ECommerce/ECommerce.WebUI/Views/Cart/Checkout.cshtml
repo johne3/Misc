@@ -1,0 +1,87 @@
+﻿@model ECommerce.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Check out now</h2>
+Please enter your details, and we'll ship your goods right away!
+@using (Html.BeginForm())
+{
+
+        @Html.ValidationSummary()
+
+    @*<h3>Ship to</h3>*@
+    <fieldset>
+        <legend>Ship to</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Name)
+                @Html.EditorFor(m => m.Name)
+            </li>
+        </ol>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Address</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Line1)
+                @Html.EditorFor(m => m.Line1)
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.Line2)
+                @Html.EditorFor(m => m.Line2)
+            </li>
+            
+            <li>
+                @Html.LabelFor(m => m.Line3)
+                @Html.EditorFor(m => m.Line3)
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.City)
+                @Html.EditorFor(m => m.City)
+            </li>
+            
+            <li>
+                @Html.LabelFor(m => m.State)
+                @Html.EditorFor(m => m.State)
+            </li>
+            
+            <li>
+                @Html.LabelFor(m => m.Zip)
+                @Html.EditorFor(m => m.Zip)
+            </li>
+            
+            <li>
+                @Html.LabelFor(m => m.Country)
+                @Html.EditorFor(m => m.Country)
+            </li>
+
+        </ol>
+    </fieldset>@*
+    
+    
+        <div>Name: @Html.EditorFor(x => x.Name)</div>
+    
+        <h3>Address</h3>
+        <div>Line 1: @Html.EditorFor(x => x.Line1)</div>
+        <div>Line 2: @Html.EditorFor(x => x.Line2)</div>
+        <div>Line 3: @Html.EditorFor(x => x.Line3)</div>
+        <div>City: @Html.EditorFor(x => x.City)</div>
+        <div>State: @Html.EditorFor(x => x.State)</div>
+        <div>Zip: @Html.EditorFor(x => x.Zip)</div>
+        <div>Country: @Html.EditorFor(x => x.Country)</div>*@
+    
+        <h3>Options</h3>
+        <label>
+            @Html.EditorFor(x => x.GiftWrap)
+            Gift wrap these items
+        </label>
+    
+    <p align="center">
+        <input class="actionButtons" type="submit" value="Complete Order"/>
+    </p>
+    }

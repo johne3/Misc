@@ -1,0 +1,35 @@
+﻿@model ECommerce.Domain.Entities.Product
+
+<div class="item">
+    @*@if (Model.ImageData != null)
+    {
+        <div class="imagelink" style="float:left;margin-right:20px">
+            <a href="@Url.Action("Details", "Product", new { Model.ProductId })">
+                <img width="133" height="75" src="@Url.Action("GetImage", "Product", new { Model.ProductId })" />
+            </a>
+        </div>
+    }*@
+    
+    @if (Model.Thumbnail != null && !string.IsNullOrWhiteSpace(Model.Thumbnail.ImagePath))
+{
+    <div class="imagelink" style=" float: left;margin-right: 20px;">
+        <a href="@Url.Action("Details", "Product", new { id = Model.ProductId})">
+            @*<img width="133" height="75" src="@Url.Content(Model.Thumbnail.ImagePath)"/>*@
+            <img width="125" height="125" src="@Url.Content(Model.Thumbnail.ImagePath)" />
+        </a>
+    </div>
+}
+   
+    <h3><a href="@Url.Action("Details", "Product", new { id = Model.ProductId })">@Model.Name</a></h3>
+
+    @Model.Description
+    
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        @Html.HiddenFor(x => x.ProductId)
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        <input type="submit" value="+ Add to cart" />
+    }
+
+    <h4>@Model.Price.ToString("c")</h4>
+</div>
